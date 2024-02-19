@@ -15,7 +15,7 @@ function listItemsForEach() {
         el = document.createElement('div');
         el.innerHTML = 
             `            
-            <div class="bar" ></div>
+            <div class="bar" data-tool-tip="$${item.amount}"></div>
             <p>${item.day}</p>
             </div>
             `;

@@ -140,6 +140,8 @@ h2.expences-title {
   height:0rem;
   border-radius: 0.3rem;
   transition: height 0.15s ease-out;
+  position:relative; /* for tool-tip */
+  cursor:pointer;
 }
 #day-2 .bar{
   transition-delay:.1s;
@@ -159,6 +161,37 @@ h2.expences-title {
 #day-7 .bar{
   transition-delay:.6s;
 }
+.bar::after{
+  content: attr(data-tool-tip); /* this takes the value of the data-tool-tip attribute */
+  display:block;
+  position:absolute;
+  background: var(--color3);
+  padding: 0.5rem;
+  width:4.2rem;
+  color:white;
+  border-radius:4px;
+  text-align : center;
+  font-size: 1em;
+  bottom:0;
+  left: -0.5rem;
+  white-space: nowrap;
+  transform: scale(0);
+  transition: transform ease-out 150ms,
+        bottom ease-out 150ms;
+  }
+.bar:hover::after{
+  transform: scale(1);
+  bottom:105%;
+}
+.bar:hover {
+  background:#ff9b87 !important;
+} 
+.turquoise:hover {
+  background:#b4dfe5 !important;
+} 
+
+  
+
 .summery-container{
   display:grid;
   grid-template-columns: 1fr 1fr;
